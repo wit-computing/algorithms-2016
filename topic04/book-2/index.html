@@ -124,6 +124,10 @@ h3
         05
       </a>
     
+      <a class="item" data-tab="06">
+        06
+      </a>
+    
     </div>
 </div>
 
@@ -162,21 +166,21 @@ In this assignment, you will be given a list of all terms and associated weights
     <h1>Specification</h1>
 <p>You will implement autocomplete in two different ways.</p>
 <ul>
-<li><strong>BruteForceAutocomplete.java</strong>, a brute-force solution.</li>
+<li><strong>BruteAutocomplete.java</strong>, a brute-force solution.</li>
 <li><strong>QuickAutocomplete.java</strong>, will use a more complex data structure to improve performance.</li>
 </ul>
 <p>As you will know from using autocomplete, speed is important.</p>
-<h2>BruteForceAutocomplete.java</h2>
+<h2>BruteAutocomplete.java</h2>
 <p>Write an data type <strong>BruteAutoComplete.java</strong> that implements the interface shown below. Your brute-force implementation should maintain the terms and weights in a suitable implementation of <strong>List</strong>.</p>
 <pre><code class="lang-java">public interface AutoComplete{
 
     // Returns the weight of the term, or 0.0 if no such term.
     public double weightOf(String term);
 
-    // Returns a top matching term, or null if no matching term.
+    // Returns the highest weighted matching term, or null if no matching term.
     public String bestMatch(String prefix);
 
-    // Returns the top k matching terms (in descending order of weight), as an
+    // Returns the highest weighted k matching terms (in descending order of weight), as an
     // iterable.
     // If fewer than k matches, return all matching terms (in descending order
     // of weight).
@@ -184,13 +188,13 @@ In this assignment, you will be given a list of all terms and associated weights
 }</code></pre>
 <h3>Implementation Details</h3>
 <ul>
+<li>you will need to create a suitable abstract data type to represent the terms (i.e. a Term class)</li>
 <li><strong>Constructor:</strong> The constructor should throw an IllegalArgumentException unless the arguments are valid: a List of terms; the weights are strictly positive; and no term is included more than once.</li>
-<li>To find the top k matching terms, scan through all of the terms, identifying those that start with the given prefix, and return the top k such terms.</li>
-<li>The topMatches() method should throw a IllegalArgumentException if k is negative.</li>
+<li><strong>matches():</strong>To find the top k matching terms, scan through all of the terms, identifying those that start with the given prefix, and return the top k such terms. The matches() method should throw a IllegalArgumentException if k is negative.</li>
 <li>Each method and constructor should throw a NullPointerException if any argument is null.</li>
 </ul>
 <p>For the brute force solution, when N is large, the number of autocomplete queries that can be processed per second will be too small to be useful. You can use it as a reference when developing a faster solution.</p>
-<p>Your constructor for BruteAutocomplete should be <em>subquadratic</em> in the number of terms, and your topMatch() and topMatches() methods should be <em>subquadratic</em> in the number of terms (and thus you should not use your weightOf method if it is linear time).</p>
+<p>Your constructor for BruteAutocomplete should be <em>subquadratic</em> , and your bestMatch() and topMatches() methods should be <em>subquadratic</em> (and thus you should not use your weightOf method if it is linear time).</p>
 <h2>Autocorrect Application</h2>
 <p>Use the api to develop an end user application. This can be a simple command line interface that allows a user to access the functionality in the Autocomplete API.</p>
 
@@ -243,6 +247,14 @@ UserID: 4,First Name:mary</p>
   </div>
  
   <div  class="ui tab segment lab" data-tab="05">
+    <h2>QuickAutocompete.java</h2>
+<p>To improve on your brute force soluion, think of ways to increase the efficiency of finding matching terms based on what you have covered in lectures and practicals so far. 
+One approach you could take is use a suitable sorting algorithm to sort the list of terms. This should position matching terms(if any) in a continuous &quot;block&quot; in the list. You could then extract the matching sublist by searching for the first and last index position of the matching &quot;block&quot;.</p>
+<p>If you take this approach, try to come up with your own data type/API that provides this capabilbity for a sorted list. (HINT: create an extension of Binary Search).</p>
+
+  </div>
+ 
+  <div  class="ui tab segment lab" data-tab="06">
     <h2>Assignment Submission</h2>
 <p>Please submit assignment as a Github or Bitbucket repository. The following are expected to be included:</p>
 <ul>
