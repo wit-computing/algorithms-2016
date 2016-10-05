@@ -191,10 +191,11 @@ In this assignment, you will be given a list of all terms and associated weights
 <li>you will need to create a suitable abstract data type to represent the terms (i.e. a Term class)</li>
 <li><strong>Constructor:</strong> The constructor should throw an IllegalArgumentException unless the arguments are valid: a List of terms; the weights are strictly positive; and no term is included more than once.</li>
 <li><strong>matches():</strong>To find the top k matching terms, scan through all of the terms, identifying those that start with the given prefix, and return the top k such terms. The matches() method should throw a IllegalArgumentException if k is negative.</li>
-<li>Each method and constructor should throw a NullPointerException if any argument is null.</li>
+<li><p>Each method and constructor should throw a NullPointerException if any argument is null.</p>
+</li>
+<li><p>Your constructor for BruteAutocomplete should be <em>subquadratic</em> , and your bestMatch() and matches() methods should be <em>subquadratic</em>.</p>
+</li>
 </ul>
-<p>For the brute force solution, when N is large, the number of autocomplete queries that can be processed per second will be too small to be useful. You can use it as a reference when developing a faster solution.</p>
-<p>Your constructor for BruteAutocomplete should be <em>subquadratic</em> , and your bestMatch() and topMatches() methods should be <em>subquadratic</em> (and thus you should not use your weightOf method if it is linear time).</p>
 <h2>Autocorrect Application</h2>
 <p>Use the api to develop an end user application. This can be a simple command line interface that allows a user to access the functionality in the Autocomplete API.</p>
 
@@ -248,9 +249,11 @@ UserID: 4,First Name:mary</p>
  
   <div  class="ui tab segment lab" data-tab="05">
     <h2>QuickAutocompete.java</h2>
-<p>To improve on your brute force soluion, think of ways to increase the efficiency of finding matching terms based on what you have covered in lectures and practicals so far. 
+<p>For the brute force solution, when N is large, the number of autocomplete queries that can be processed per second will be too small to be useful. You can use it as a reference when developing a faster solution.
+To improve on your brute force solution, think of ways to increase the efficiency of finding matching terms based on what you have covered in lectures and practicals so far.
 One approach you could take is use a suitable sorting algorithm to sort the list of terms. This should position matching terms(if any) in a continuous &quot;block&quot; in the list. You could then extract the matching sublist by searching for the first and last index position of the matching &quot;block&quot;.</p>
-<p>If you take this approach, try to come up with your own data type/API that provides this capabilbity for a sorted list. (HINT: create an extension of Binary Search).</p>
+<p><img src="./img/movies.png" alt="terms that match &quot;ali&quot; in a sorted list"></p>
+<p>If you take this approach, try to come up with your own data type/API that provides this capability for a sorted list. (HINT: create an extension of Binary Search).</p>
 
   </div>
  
