@@ -252,8 +252,8 @@ The following are instructions for MS Excel:
 <p>The following exercised will help you learn how to analyse your programs and code:</p>
 <h4>Initial Analysis</h4>
 <p>For each of the following algorithms, indicate:
-a) a natural size metric for its inputs; 
-b) its basic operation; 
+a) a natural size metric for its inputs;
+b) its basic operation;
 c) whether the basic operation count can be different for inputs of the same size.</p>
 <ul>
 <li>search for a key K in a list of n numbers</li>
@@ -272,7 +272,7 @@ c) whether the basic operation count can be different for inputs of the same siz
                 if (a[j] &lt; a[index])
                     index = j;
 
-            int smallerNumber = a[index]; 
+            int smallerNumber = a[index];
             a[index] = a[i];
             a[i] = smallerNumber;
         }
@@ -280,12 +280,12 @@ c) whether the basic operation count can be different for inputs of the same siz
     }</code></pre>
 <ul>
 <li>What is the problem size for this algorithm?</li>
-<li>Identify the &quot;basic operation&quot; in the algorithm. Remember from lectures, a basic operation is usually in the inner loop that runs the most number of times. </li>
-<li>Define a cost model that includes the basic operation(hint: number of array accesses). This should take the form C(N) = ...). </li>
+<li>Identify the &quot;basic operation&quot; in the algorithm. Remember from lectures, a basic operation is usually in the inner loop that runs the most number of times.</li>
+<li>Define a cost model that includes the basic operation(hint: number of array accesses). This should take the form C(N) = ...).</li>
 <li>Use tilda notation to simlpify the cost model.</li>
 </ul>
 <p><strong>Tilda Notation</strong></p>
-<p>Use tilda notation to simlify the following:</p>
+<p>Use tilda notation to simplify the following:</p>
 <p>a. $$N + 1$$
 d. $$2N^3  + 15 N 2 + N$$
 b. $$1 + 1/N$$
