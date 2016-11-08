@@ -125,35 +125,67 @@ h3
  
   <div  class="ui tab segment lab" data-tab="01">
     <h1>Recursive Exercises</h1>
-<p>Create a new project in Eclipse called Lab7Recursion. </p>
+<p>Create a new project in Eclipse called Lab7Recursion.</p>
 <ul>
-<li><p>Write a recursive algorithm for finding the binary representation of a decimal number. (hint: repeatedly divide 2 into the decimal number and read the remainders backwards) .Provide a Java implementation for the solution and ascertain the growth order.</p>
+<li><p><strong>Binary Number</strong>. Write a recursive algorithm for finding the binary representation of a decimal number. (hint: repeatedly divide 2 into the decimal number and read the remainders backwards) .Provide a Java implementation, BinaryNumbers.java, and ascertain the growth order.</p>
 </li>
-<li><p>Reversing a String. Write two methods, one non-recursive and one recursive, that returns a String that is the reverse of the input String.e.g. System.out.println(reverseString(“Darragh and Ronan”)); would print: “nanoR dna hgarraD”.</p>
+<li><p><strong>Reversing a String</strong>. Write two methods, one non-recursive and one recursive, that returns a String that is the reverse of the input String.e.g. System.out.println(reverseString(“Darragh and Ronan”)); would print: “nanoR dna hgarraD”.</p>
+</li>
+<li><p><strong>A Tree</strong>. Create and run the following fractal program that draws a tree. You will need to put stdlib_package.jar on your build path. Modify the program such that it includes a four branches(e.g. include a forth recursive call).</p>
 </li>
 </ul>
+<pre><code class="lang-java">import edu.princeton.cs.introcs.StdDraw;
+
+public class TreeFractal{
+public static void tree(int n, double x, double y, double a, double branchRadius) {
+    double bendAngle   = Math.toRadians(15);
+    double branchAngle = Math.toRadians(37);
+    double branchRatio = 0.65;
+
+    double cx = x + Math.cos(a) * branchRadius;
+    double cy = y + Math.sin(a) * branchRadius;
+    StdDraw.setPenRadius(0.001 * Math.pow(n, 1.2));
+    StdDraw.line(x, y, cx, cy);
+    if (n == 0) return;
+
+    tree(n-1, cx, cy, a + bendAngle - branchAngle, branchRadius * branchRatio);
+    tree(n-1, cx, cy, a + bendAngle + branchAngle, branchRadius * branchRatio);
+    tree(n-1, cx, cy, a + bendAngle,               branchRadius * (1 - branchRatio));
+}
+
+public static void main(String[] args) {
+    int n = Integer.parseInt(args[0]);
+    StdDraw.enableDoubleBuffering();
+    tree(n, 0.5, 0, Math.PI/2, 0.3);
+    StdDraw.show();
+}
+}</code></pre>
+<p><img src="img/00.png" alt="Fractal trees"></p>
 <ul>
-<li>Consider the following recursive algorithm for computing the sum of the first n cubes: S(n) = 13 + 23 + ... + n3</li>
-</ul>
-<p>Algorithm S(n)
+<li><strong>Cubes:</strong> Consider the following recursive algorithm for computing the sum of the first n cubes: S(n) = 1<sup>3</sup> + 2<sup>3</sup> + ... + n
+<sup>3</sup><pre><code>Algorithm S(n)
 //Input: A positive integer n
 //Output: The sum of the first n cubes
 if n = 1 return 1
-else return S(n − 1) + n ∗ n ∗ n</p>
-<p>Implement this is Java
-How does this algorithm compare with the straightforward non-recursive algorithm for computing this function?</p>
-<p>Design a recursive algorithm for computing 2n for any non-negative integer n that is based on the formula: 2n = 2n−1 + 2n−1
-Set up a recurrence relation for the number of additions made by the algorithm and solve it. 
-Is it a good algorithm for solving this problem?</p>
-<p>Consider the following recursive algorithm.</p>
-<p>Algorithm Min1 (A[0..n − 1])
+else return S(n − 1) + n ∗ n ∗ n</code></pre>
+Implement this is Java.
+How does this algorithm compare with the straightforward non-recursive algorithm for computing this function?</li>
+</ul>
+<ul>
+<li>Design a recursive algorithm for computing 2<sup>n</sup> for any non-negative integer n that is based on the formula: 2n = 2<sup>(n−1)</sup> + 2<sup>(n−1)</sup>.
+Set up a recurrence relation for the number of additions made by the algorithm and solve it.
+Is it a good algorithm for solving this problem?</li>
+</ul>
+<ul>
+<li>Consider the following recursive algorithm.<pre><code>Algorithm Min1 (A[0..n − 1])
 //Input: An array A[0..n − 1] of real numbers
 if n = 1 return A[0]
 else temp ← Min1 (A[0..n − 2])
 if temp ≤ A[n − 1] return temp
-else return A[n − 1]</p>
-<p>What does this algorithm compute?
-Set up a recurrence relation for the algorithm’s basic operation count and solve it.</p>
+else return A[n − 1]</code></pre>
+What does this algorithm compute?
+Set up a recurrence relation for the algorithm’s basic operation count and solve it.</li>
+</ul>
 
   </div>
  
