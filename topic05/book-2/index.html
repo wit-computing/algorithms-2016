@@ -1,0 +1,212 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+        
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.credits
+{
+  min-height:20px;
+}
+
+
+    </style>
+
+  </head>
+
+  <body>
+
+    
+
+
+
+  <div class="ui container">
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <a href="../index.html">
+      <i class="sitemap icon"></i>
+      Sorting
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Lab-07">
+        Lab-07
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+    </div>
+</div>
+
+<br><br>
+
+  
+  <div  class="ui tab segment lab" data-tab="Lab-07">
+    <h1>Lab 7 - Recursion exercises</h1>
+<p> On competing the lab you will:</p>
+<ul>
+<li>Implement recursive algorithms.</li>
+</ul>
+
+  </div>
+ 
+  <div  class="ui tab segment lab" data-tab="01">
+    <h1>Recursive Exercises</h1>
+<p>Create a new project in Eclipse called Lab7Recursion. </p>
+<ul>
+<li><p>Write a recursive algorithm for finding the binary representation of a decimal number. (hint: repeatedly divide 2 into the decimal number and read the remainders backwards) .Provide a Java implementation for the solution and ascertain the growth order.</p>
+</li>
+<li><p>Reversing a String. Write two methods, one non-recursive and one recursive, that returns a String that is the reverse of the input String.e.g. System.out.println(reverseString(“Darragh and Ronan”)); would print: “nanoR dna hgarraD”.</p>
+</li>
+</ul>
+<ul>
+<li>Consider the following recursive algorithm for computing the sum of the first n cubes: S(n) = 13 + 23 + ... + n3</li>
+</ul>
+<p>Algorithm S(n)
+//Input: A positive integer n
+//Output: The sum of the first n cubes
+if n = 1 return 1
+else return S(n − 1) + n ∗ n ∗ n</p>
+<p>Implement this is Java
+How does this algorithm compare with the straightforward non-recursive algorithm for computing this function?</p>
+<p>Design a recursive algorithm for computing 2n for any non-negative integer n that is based on the formula: 2n = 2n−1 + 2n−1
+Set up a recurrence relation for the number of additions made by the algorithm and solve it. 
+Is it a good algorithm for solving this problem?</p>
+<p>Consider the following recursive algorithm.</p>
+<p>Algorithm Min1 (A[0..n − 1])
+//Input: An array A[0..n − 1] of real numbers
+if n = 1 return A[0]
+else temp ← Min1 (A[0..n − 2])
+if temp ≤ A[n − 1] return temp
+else return A[n − 1]</p>
+<p>What does this algorithm compute?
+Set up a recurrence relation for the algorithm’s basic operation count and solve it.</p>
+
+  </div>
+ 
+
+
+<script>
+$('.ui.menu .item')
+  .tab({
+    history: true,
+    historyType: 'hash'
+  })
+;
+</script>
+
+   </div>
+
+   
+  <br><br>
+  <div class="ui bottom fixed borderless menu">
+    <div class="ui small item">
+    <p id="footertext">
+    Prepared by  Frank Walsh (fxwalsh@wit.ie) & Eamonn De Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
+     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
+     </a>
+     </p>
+    </div>
+  </div>
+
+    <script>
+      
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+  $('.ui.embed').embed();
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+
+
+})
+
+
+    </script>
+
+  </body>
+ </html>
